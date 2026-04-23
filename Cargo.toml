@@ -1,0 +1,15 @@
+[package]
+name = "gng_jupyter"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# For development, use local path dependency
+# For production, change to: neurogas = "0.0.2"
+neurogas = { path = "../rust_gng/gng" }
+pyo3 = {version = "0.21",features = ["extension-module"]}
+numpy = "0.21"
+
+[lib]
+name = "gng_jupyter"
+crate-type = ["cdylib","lib"]

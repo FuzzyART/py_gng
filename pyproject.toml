@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools", "wheel", "pyo3-pack"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gng-jupyter"
+version = "0.1.0"
+description = "Jupyter-compatible Python wrapper for the Rust-based GNG algorithm"
+readme = "README.md"
+authors = [
+    {name = "Your Name", email = "your.email@example.com"}
+]
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.7"
+dependencies = [
+    "numpy",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/gng-jupyter"
+Repository = "https://github.com/yourusername/gng-jupyter"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["gng_jupyter*"]
+
+[tool.cargo]
+name = "gng_jupyter"
