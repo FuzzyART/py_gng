@@ -1,5 +1,5 @@
 [package]
-name = "gng_jupyter"
+name = "neurogas"
 version = "0.1.0"
 edition = "2021"
 
@@ -11,5 +11,5 @@ pyo3 = {version = "0.21",features = ["extension-module"]}
 numpy = "0.21"
 
 [lib]
-name = "gng_jupyter"
+name = "neurogas"
 crate-type = ["cdylib","lib"]

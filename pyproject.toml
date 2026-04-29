@@ -3,7 +3,7 @@ requires = ["setuptools", "wheel", "pyo3-pack"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "gng-jupyter"
+name = "neurogas"
 version = "0.1.0"
 description = "Jupyter-compatible Python wrapper for the Rust-based GNG algorithm"
 readme = "README.md"
@@ -27,7 +27,7 @@ Repository = "https://github.com/yourusername/gng-jupyter"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["gng_jupyter*"]
+include = ["neurogas*"]
 
 [tool.cargo]
-name = "gng_jupyter"
+name = "neurogas"

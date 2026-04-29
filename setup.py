@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="gng-jupyter",
+    name="neurogas_py",
     version="0.1.0",
     author="Your Name",
     author_email="your.email@example.com",
@@ -25,7 +25,7 @@ setup(
         "pyo3-pack",
     ],
     package_data={
-        "gng_jupyter": ["*.so", "*.pyd", "*.dylib", "*.dll"],
+        "neurogas_py": ["*.so", "*.pyd", "*.dylib", "*.dll"],
     },
     zip_safe=False,
 )

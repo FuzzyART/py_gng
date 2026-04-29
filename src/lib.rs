@@ -184,7 +184,7 @@ impl PyContext {
 
 /// Define the Python module - renamed to match your package name
 #[pymodule]
-fn gng_jupyter(_py: Python, m: &PyModule) -> PyResult<()> {
+fn neurogas(_py: Python, m: &PyModule) -> PyResult<()> {
     m.add_class::<PyContext>()?;
     Ok(())
 }
