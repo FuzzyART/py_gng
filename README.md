@@ -68,6 +68,16 @@ context.save_model_json("model.json")
 - NumPy
 
 ## Development
+required pip packages for compiling:
+- pyo3-pack 
+- maturin
+
+required pip packages for the examples:
+ - ipykernel
+ - install pandas
+ - scikit-learn
+ - matplotlib
+
 
 To build this project locally:
 
