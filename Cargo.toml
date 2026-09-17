@@ -6,9 +6,9 @@ edition = "2021"
 [dependencies]
 # For development, use local path dependency
 # For production, change to: neurogas = "0.0.2"
-neurogas = { path = "../rust_gng/gng" }
-pyo3 = {version = "0.21",features = ["extension-module"]}
-numpy = "0.21"
+neurogas = { path = "../rust_gng" }
+pyo3 = {version = "0.29",features = ["extension-module"]}
+numpy = "0.29"
 
 [lib]
 name = "neurogas"
