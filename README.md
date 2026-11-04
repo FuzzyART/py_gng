@@ -29,36 +29,44 @@ pip install -e .
 
 ## Usage
 
+The Python wrapper is exposed as the `neurogas` module, and the main context type is `PyContext`.
+
 ```python
-from gng_jupyter import PyContext
+import numpy as np
+import neurogas as gng_py
 
-# Create a new GNG context
-context = PyContext()
+# Example dataset: two 2D clusters
+points = np.array([
+    [0.0, 0.0], [0.1, 0.1], [-0.2, -0.1],
+    [5.0, 5.0], [5.1, 4.9], [4.8, 5.2],
+], dtype=float)
 
-# Set parameters
-context.set_parameters(
+ctx = gng_py.PyContext()
+ctx.create_system()
+ctx.set_parameters(
     input_width=2,
-    weight_rng_min=0.0,
-    weight_rng_max=1.0,
-    edge_removal_age=100,
-    neuron_creation_interval=1000,
-    max_train_iterations=10000,
-    target_error=0.01,
-    epsilon_w=0.05,
-    epsilon_n=0.005,
+    weight_rng_min=-1.1,
+    weight_rng_max=1.1,
+    edge_removal_age=50,
+    neuron_creation_interval=200,
+    max_epochs=20,
+    max_neurons=40,
+    target_error=0.096,
+    epsilon_w=0.1,
+    epsilon_n=0.006,
     alpha=0.5,
-    beta=0.99
+    beta=0.995,
 )
 
-# Initialize dataset
-context.init_dataset("path/to/dataset.csv")
+ctx.init_dataset_vec(points.reshape(-1))
+ctx.fit()
 
-# Train the model
-context.fit()
-
-# Save model
-context.save_model_json("model.json")
+neurons = ctx.get_neurons()
+edges = ctx.get_edges()
+print(neurons)
+print(edges)
 ```
+
 
 ## Dependencies
 
