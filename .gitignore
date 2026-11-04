@@ -12,3 +12,4 @@ result
 
 *.csv
 rust_gng.git
+src/neurogas.egg-info/
