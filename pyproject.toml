@@ -1,14 +1,19 @@
+requires-python = ">=3.7"
+dependencies = [
+    "maturin",
+]
+
 [build-system]
-requires = ["setuptools", "wheel", "pyo3-pack"]
-build-backend = "setuptools.build_meta"
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"
 
 [project]
 name = "neurogas"
-version = "0.1.0"
+version = "0.0.4"
 description = "Jupyter-compatible Python wrapper for the Rust-based GNG algorithm"
 readme = "README.md"
 authors = [
-    {name = "Your Name", email = "your.email@example.com"}
+    {name = "Falko Duwanoff", email = "f.duwanoff@gmail.com"}
 ]
 license = {text = "MIT"}
 classifiers = [
@@ -17,6 +22,4 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 requires-python = ">=3.7"
-dependencies = [
-    "maturin",
-]
+
