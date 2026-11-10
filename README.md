@@ -1,70 +1,82 @@
 # GNG Jupyter Project
 
-This project provides a Jupyter-compatible Python wrapper around the Rust-based Growing Neural Gas (GNG) algorithm implementation.
+
+> ⚠️ Experimental — Not Production Ready
+>
+> This package is in an **early, unstable state** (v0.0.4).
+> The public API, CLI, and behaviour are **not stable** and may change
+> — or be removed entirely — in any subsequent release without notice.
+> Use at your own risk. Do **not** rely on it in production yet.
+
+
+This package is a personal portfolio project created for educational and demonstration purposes.
 
 ## Overview
 
+This project provides a Jupyter-compatible Python wrapper around the Rust-based Growing Neural Gas (GNG) algorithm implementation.
+
+
 This project is a Python wrapper that depends on the `neurogas` crate (available on crates.io). It provides a convenient interface for using the GNG algorithm in Jupyter notebooks and Python environments.
 
-## Features
-
-- Python bindings for the GNG algorithm
-- Jupyter notebook compatible
-- Easy integration with existing Python data science workflows
-- Full access to all GNG algorithm parameters and functionality
 
 ## Installation
 
 To install this package, you can use pip:
 
 ```bash
-pip install .
+pip install neurogas
 ```
 
-Or for development:
-
-```bash
-pip install -e .
-```
 
 ## Usage
 
-The Python wrapper is exposed as the `neurogas` module, and the main context type is `PyContext`.
 
 ```python
 import numpy as np
+
 import neurogas as gng_py
 
-# Example dataset: two 2D clusters
-points = np.array([
-    [0.0, 0.0], [0.1, 0.1], [-0.2, -0.1],
-    [5.0, 5.0], [5.1, 4.9], [4.8, 5.2],
-], dtype=float)
+if __name__ == "__main__":
+    data= np.array(
+        [
+            [0.0, 0.0], [0.1, 0.1], [-0.2, -0.1],
+            [2.0, 5.0], [2.1, 4.9], [1.8, 5.2],
+        ],
 
-ctx = gng_py.PyContext()
-ctx.create_system()
-ctx.set_parameters(
-    input_width=2,
-    weight_rng_min=-1.1,
-    weight_rng_max=1.1,
-    edge_removal_age=50,
-    neuron_creation_interval=200,
-    max_epochs=20,
-    max_neurons=40,
-    target_error=0.096,
-    epsilon_w=0.1,
-    epsilon_n=0.006,
-    alpha=0.5,
-    beta=0.995,
-)
+    )
 
-ctx.init_dataset_vec(points.reshape(-1))
-ctx.fit()
+    gng = gng_py.Gng()
 
-neurons = ctx.get_neurons()
-edges = ctx.get_edges()
-print(neurons)
-print(edges)
+    gng.set_parameters(
+        input_width=2,
+        weight_rng_min=-1.1,
+        weight_rng_max=1.1,
+        edge_removal_age=50,
+        neuron_creation_interval=200,
+        max_epochs=100,
+        max_neurons=10,
+        target_error=0.096,
+        epsilon_w=0.1,
+        epsilon_n=0.006,
+        alpha=0.5,
+        beta=0.995,
+        rng_seed=123,
+    )
+
+    gng.init_dataset_vec(data.flatten())
+    gng.fit()
+
+    neurons = gng.get_neurons()
+    edges = gng.get_edges()
+
+    print(f"Number of neurons: {len(neurons)}")
+    print(f"Number of edges: {len(edges)}")
+    print("###NEURONS####")
+    print("(Nr., [x, y])") # neuron id and coordinates of each neuron in the output
+    print(neurons)
+    print("###EDGES###")
+    print("(start_id, end_id)")  # start and end id of each edge in the outpu
+    print(edges)
 ```
 
 
