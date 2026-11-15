@@ -18,6 +18,15 @@ This project provides a Jupyter-compatible Python wrapper around the Rust-based 
 
 This project is a Python wrapper that depends on the `neurogas` crate (available on crates.io). It provides a convenient interface for using the GNG algorithm in Jupyter notebooks and Python environments.
 
+## Documentation
+**For full documentation, visit:** 
+
+https://fuzzyart.github.io/neurogas_docu/
+
+**Examples:**
+
+ coming soon
+
 
 ## Installation
 
