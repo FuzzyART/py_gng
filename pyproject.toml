@@ -23,3 +23,7 @@ classifiers = [
 ]
 requires-python = ">=3.7"
 
+[project.urls]
+Documentation = "https://fuzzyart.github.io/neurogas_docu/neurogas_py-api/#neurogasgnginit_dataset"
+Repository = "https://github.com/FuzzyART/py_gng"
+
