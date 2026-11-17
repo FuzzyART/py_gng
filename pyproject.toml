@@ -9,7 +9,7 @@ build-backend = "maturin"
 
 [project]
 name = "neurogas"
-version = "0.0.4"
+version = "0.0.5"
 description = "Jupyter-compatible Python wrapper for the Rust-based GNG algorithm"
 readme = "README.md"
 authors = [
@@ -17,13 +17,19 @@ authors = [
 ]
 license = {text = "MIT"}
 classifiers = [
+    "Development Status :: 3 - Alpha",
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Rust",
+    "Intended Audience :: Education",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Information Analysis",
 ]
 requires-python = ">=3.7"
 
 [project.urls]
-Documentation = "https://fuzzyart.github.io/neurogas_docu/neurogas_py-api/#neurogasgnginit_dataset"
+Documentation = "https://fuzzyart.github.io/neurogas_docu/neurogas_py-api/"
 Repository = "https://github.com/FuzzyART/py_gng"
 

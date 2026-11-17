@@ -32,6 +32,8 @@ https://fuzzyart.github.io/neurogas_docu/
 
 To install this package, you can use pip:
 
+
+
 ```bash
 pip install neurogas
 ```
@@ -91,7 +93,7 @@ if __name__ == "__main__":
 
 ## Dependencies
 
-- [neurogas](https://crates.io/crates/neurogas) crate (version 0.0.2)
+- [neurogas](https://crates.io/crates/neurogas) crate (version 0.0.4)
 - Python 3.7+
 - PyO3
 - NumPy
@@ -114,11 +116,62 @@ To build this project locally:
 cargo build
 ```
 
-To install in development mode:
+## 🛠 Building from Source
+If you want to build or modify the package locally, follow these steps to set up your environment and compile the Rust extensions using maturin.
+
+### 1. Prerequisites
+Ensure you have the Rust toolchain and Python installed. You will also need maturin for building Python packages from Rust.
+
+### 2. Setup the Virtual Environment
+Create and activate a virtual environment, then upgrade your packaging tools:
 
 ```bash
-pip install -e .
+# Create and activate virtual environment
+python -m venv venv
+source venv/bin/activate
+
+# Upgrade pip and packaging tools
+python -m pip install --upgrade pip
+python -m pip install --upgrade twine maturin
 ```
+
+### 3. Configure Rust Targets (Optional for Cross-Compilation)
+If you are compiling for your native host architecture, you can skip adding targets. If you need to cross-compile for Windows (MSVC) from another OS, add the target:
+
+```Bash
+# Add the Windows MSVC target
+rustup target add x86_64-pc-windows-msvc
+
+
+# Verify installed targets
+rustup target list --installed
+```
+### 4. Build the Package
+You can build release wheels using maturin:
+
+- For your native host architecture:
+
+```bash
+maturin build --release
+```
+
+- For Windows targets (cross-compilation):
+
+```bash
+maturin build --release --target x86_64-pc-windows-msvc
+```
+
+
+
+
+
+
+
+
+
+
+## Changelog
+- 0.0.5: Added Windows wheel
 
 ## License
 

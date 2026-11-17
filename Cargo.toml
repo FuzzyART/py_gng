@@ -1,6 +1,6 @@
 [package]
 name = "neurogas"
-version = "0.0.4"
+version = "0.0.5"
 edition = "2021"
 
 [dependencies]
@@ -9,8 +9,13 @@ edition = "2021"
 
 # For production, change to: neurogas = "0.0.4"
 neurogas = "0.0.4"
-pyo3 = {version = "0.29",features = ["extension-module","experimental-inspect"]}
-numpy = "0.29"
+pyo3 = {version = "0.30.1",features = ["extension-module",
+"experimental-inspect",
+"generate-import-lib",
+"abi3-py39"
+
+]}
+numpy = "0.30.0"
 
 [lib]
 name = "neurogas"
